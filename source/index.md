@@ -9,8 +9,8 @@ toc_footers:
 
 includes:
   - authentication
-  - kittens
-  - authentication
+  # - kittens
+  # - authentication
   - errors
 
 search: true
