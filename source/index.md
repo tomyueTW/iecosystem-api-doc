@@ -9,8 +9,11 @@ toc_footers:
 
 includes:
   - authentication
-  # - kittens
-  # - authentication
+  - orders
+  - messages
+  - admin
+  - admin-messages
+  - admin-users
   - errors
 
 search: true
