@@ -39,7 +39,7 @@ password     | string   |
 password_confirmation     | string   |
 name     | string   |
 account     | string   |
-gender     | string   | ['male', 'female']
+gender     | string   | ['male', 'female', 'other']
 birthday     | date   |
 city     | string   |
 
