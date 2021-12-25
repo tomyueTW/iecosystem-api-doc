@@ -147,7 +147,7 @@
 <tr>
 <td>gender</td>
 <td>string</td>
-<td>[‘male’, ‘female’]</td>
+<td>[‘male’, ‘female’, ‘other’]</td>
 </tr>
 <tr>
 <td>birthday</td>
@@ -505,6 +505,107 @@
 }
 </code></pre>
 <!-- -- Facebook login end-- -->
+
+<h2 id="Post-user-profile"><a href="#Post-user-profile" class="headerlink" title="Post user profile"></a>Post user profile</h2><p>Post user profile</p>
+<h3 id="HTTP-Request-6"><a href="#HTTP-Request-6" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/user/profile</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;name&quot;:&quot;1236&quot;,
+   &quot;gender&quot;:&quot;other&quot;,
+   &quot;birthday&quot;:&quot;2020-1-1&quot;,
+   &quot;city&quot;:&quot;台中&quot;,
+   &quot;password&quot;:&quot;123456&quot;,
+   &quot;password_confirmation&quot;:&quot;123456&quot;
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>[‘male’, ‘female’, ‘other’]</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-6"><a href="#HTTP-Response-6" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;user&quot;:{
+      &quot;id&quot;:32,
+      &quot;name&quot;:&quot;1236&quot;,
+      &quot;email&quot;:&quot;admin5@gmail.com&quot;,
+      &quot;email_verified_at&quot;:null,
+      &quot;created_at&quot;:&quot;2021-12-25 00:12:34&quot;,
+      &quot;updated_at&quot;:&quot;2021-12-25 10:12:35&quot;,
+      &quot;account&quot;:null,
+      &quot;gender&quot;:&quot;other&quot;,
+      &quot;birthday&quot;:&quot;2020-01-01&quot;,
+      &quot;city&quot;:&quot;台北&quot;
+   },
+   &quot;success&quot;:true
+}
+</code></pre>
+<!-- -- Post user profile end-- -->
           
               <h1 id="Orders"><a href="#Orders" class="headerlink" title="Orders"></a>Orders</h1><h2 id="POST-User-close-order"><a href="#POST-User-close-order" class="headerlink" title="[POST] User close order"></a>[POST] User close order</h2><p>User關閉聊聊</p>
 <h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/orders/{orderId}/close</code></p>
