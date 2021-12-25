@@ -1,0 +1,1361 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Iecosystem API Reference</title>
+
+    
+<link rel="stylesheet" href="css/style.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="js/lib/energize.js"></script>
+<script src="js/lib/imagesloaded.min.js"></script>
+<script src="js/lib/jquery_ui.js"></script>
+<script src="js/lib/jquery.highlight.js"></script>
+<script src="js/lib/jquery.tocify.js"></script>
+<script src="js/lib/lunr.js"></script>
+
+    
+<script src="js/script.js"></script>
+
+
+    
+      <script>
+        $(function() {
+            setupLanguages(["bash"]);
+        });
+      </script>
+    
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body class>
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png">
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png">
+      
+        <div class="lang-selector">
+          
+              <a href="#" data-language-name="bash">bash</a>
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc">
+      </div>
+      
+        <ul class="toc-footer">
+          
+              <li><a target="_blank" rel="noopener" href="http://github.com/mpociot/whiteboard">Documentation Powered by Whiteboard</a></li>
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://ahchih.github.io/foundation/index#/" target="_blank" rel="noopener">Iecosystem</a><br><a href="https://iecosystem-api.tomyue.cc" target="_blank" rel="noopener">Api endpoint</a></p>
+
+        
+          
+              <h1 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h1><h2 id="Register"><a href="#Register" class="headerlink" title="Register"></a>Register</h2><p>Register the member.</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/register</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;email&quot;:&quot;tomyue@com.tw&quot;,
+  &quot;email_confirmation&quot;:&quot;tomyue@com.tw&quot;,
+  &quot;password&quot;:&quot;1234567&quot;,
+  &quot;name&quot;:&quot;王大明&quot;,
+  &quot;account&quot;:&quot;a0007&quot;,
+  &quot;password_confirmation&quot;:&quot;1234567&quot;,
+  &quot;gender&quot;:&quot;female&quot;,
+  &quot;birthday&quot;:&quot;2000-07-09&quot;,
+  &quot;city&quot;:&quot;台北&quot;
+}
+</code></pre>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>email</td>
+<td>eamil</td>
+<td></td>
+</tr>
+<tr>
+<td>email_confirmation</td>
+<td>eamil</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>account</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>[‘male’, ‘female’]</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;user&quot;:{
+    &quot;name&quot;:&quot;王大明&quot;,
+    &quot;email&quot;:&quot;tomyue@com.tw&quot;,
+    &quot;account&quot;:&quot;a0007&quot;,
+    &quot;gender&quot;:&quot;female&quot;,
+    &quot;birthday&quot;:&quot;2000-07-09&quot;,
+    &quot;city&quot;:&quot;台北&quot;,
+    &quot;updated_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;created_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;id&quot;:13
+  },
+  &quot;token&quot;:&quot;8|qo5nShLeqvl1QhpaGqOLZxbEn5RyVL1jyfFu7R13&quot;
+}
+</code></pre>
+<!-- -- Register end-- -->
+
+<h2 id="Login"><a href="#Login" class="headerlink" title="Login"></a>Login</h2><p>Login the system.</p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/login</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;email&quot;:&quot;tomyue@com.tw&quot;,
+  &quot;password&quot;:&quot;1234567&quot;
+}
+</code></pre>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>email</td>
+<td>eamil</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-1"><a href="#HTTP-Response-1" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;user&quot;:{
+    &quot;name&quot;:&quot;王大明&quot;,
+    &quot;email&quot;:&quot;tomyue@com.tw&quot;,
+    &quot;account&quot;:&quot;a0007&quot;,
+    &quot;gender&quot;:&quot;female&quot;,
+    &quot;birthday&quot;:&quot;2000-07-09&quot;,
+    &quot;city&quot;:&quot;台北&quot;,
+    &quot;updated_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;created_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;id&quot;:13
+  },
+  &quot;token&quot;:&quot;8|qo5nShLeqvl1QhpaGqOLZxbEn5RyVL1jyfFu7R13&quot;
+}
+</code></pre>
+<!-- -- Login end-- -->
+
+<h2 id="Get-user-profile"><a href="#Get-user-profile" class="headerlink" title="Get user profile"></a>Get user profile</h2><p>Get user profile</p>
+<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/user</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-2"><a href="#HTTP-Response-2" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;user&quot;:{
+    &quot;name&quot;:&quot;王大明&quot;,
+    &quot;email&quot;:&quot;tomyue@com.tw&quot;,
+    &quot;account&quot;:&quot;a0007&quot;,
+    &quot;gender&quot;:&quot;female&quot;,
+    &quot;birthday&quot;:&quot;2000-07-09&quot;,
+    &quot;city&quot;:&quot;台北&quot;,
+    &quot;updated_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;created_at&quot;:&quot;2021-10-24T12:20:12.000000Z&quot;,
+    &quot;id&quot;:13
+  },
+  &quot;token&quot;:&quot;8|qo5nShLeqvl1QhpaGqOLZxbEn5RyVL1jyfFu7R13&quot;
+}
+</code></pre>
+<!-- -- Get user profile end-- -->
+
+<h2 id="Reset-password"><a href="#Reset-password" class="headerlink" title="Reset password"></a>Reset password</h2><h3 id="HTTP-Request-3"><a href="#HTTP-Request-3" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/user/reset-password</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;password&quot;:&quot;1234567&quot;,
+  &quot;password_confirmation&quot;:&quot;1234567&quot;
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-3"><a href="#HTTP-Response-3" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+    &quot;message&quot;:&quot;Change password successful&quot;
+}
+</code></pre>
+<!-- -- Logout end-- -->
+
+<h2 id="Logout"><a href="#Logout" class="headerlink" title="Logout"></a>Logout</h2><h3 id="HTTP-Request-4"><a href="#HTTP-Request-4" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/logout</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-4"><a href="#HTTP-Response-4" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+    &quot;message&quot;: &quot;Tokens Revoked&quot;
+}
+</code></pre>
+<!-- -- Logout end-- -->
+
+<h2 id="Facebook-login"><a href="#Facebook-login" class="headerlink" title="Facebook login"></a>Facebook login</h2><h3 id="HTTP-Request-5"><a href="#HTTP-Request-5" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/facebook/auth</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-5"><a href="#HTTP-Response-5" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;user&quot;:{
+    &quot;id&quot;:2,
+    &quot;name&quot;:&quot;李大明&quot;,
+    &quot;email&quot;:&quot;hello@yahoo.com.tw&quot;,
+    &quot;email_verified_at&quot;:&quot;2021-10-26T05:08:55.000000Z&quot;,
+    &quot;created_at&quot;:&quot;2021-10-24T10:17:20.000000Z&quot;,
+    &quot;updated_at&quot;:&quot;2021-10-26T05:08:55.000000Z&quot;,
+    &quot;account&quot;:null,
+    &quot;gender&quot;:null,
+    &quot;birthday&quot;:null,
+    &quot;city&quot;:null
+  },
+  &quot;token&quot;:&quot;24|nIebgseVZFzVGKmSrpab00BgpFlY6mU19JFgy7dL&quot;
+}
+</code></pre>
+<!-- -- Facebook login end-- -->
+          
+              <h1 id="Orders"><a href="#Orders" class="headerlink" title="Orders"></a>Orders</h1><h2 id="POST-User-close-order"><a href="#POST-User-close-order" class="headerlink" title="[POST] User close order"></a>[POST] User close order</h2><p>User關閉聊聊</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/orders/{orderId}/close</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>orderId</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:{
+      &quot;id&quot;:4,
+      &quot;user_id&quot;:25,
+      &quot;number&quot;:&quot;#2021102800001&quot;,
+      &quot;status&quot;:2,
+      &quot;assign_id&quot;:26,
+      &quot;created_at&quot;:&quot;2021-10-28 14:10:58&quot;,
+      &quot;updated_at&quot;:&quot;2021-10-28 16:10:52&quot;
+   }
+}
+</code></pre>
+<!-- -- User store messages [localStorage] end-- -->
+          
+              <h1 id="Messages"><a href="#Messages" class="headerlink" title="Messages"></a>Messages</h1><h2 id="POST-User-store-messages-localStorage"><a href="#POST-User-store-messages-localStorage" class="headerlink" title="[POST] User store messages [localStorage]"></a>[POST] User store messages [localStorage]</h2><p>發送<code>localStorage</code>裡的資訊</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/messages/storage</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;body&quot;: [
+    &quot;Hello, I&#39;m Tom1.&quot;,
+    &quot;Hello, I&#39;m Tom2.&quot;,
+    &quot;Hello, I&#39;m Tom3.&quot;,
+  ]
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>body</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:[
+      {
+         &quot;id&quot;:29,
+         &quot;order_id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;Hello, I&#39;m Tom1.&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 15:10:59&quot;,
+         &quot;updated_at&quot;:&quot;2021-10-28 15:10:59&quot;
+      },
+      {
+         &quot;id&quot;:30,
+         &quot;order_id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;Hello, I&#39;m Tom2.&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 15:10:59&quot;,
+         &quot;updated_at&quot;:&quot;2021-10-28 15:10:59&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- User store messages [localStorage] end-- -->
+
+<h2 id="GET-User-get-message-history"><a href="#GET-User-get-message-history" class="headerlink" title="[GET] User get message history"></a>[GET] User get message history</h2><p>取得歷史紀錄</p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/messages?page=2&amp;perPage=2</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>body</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-1"><a href="#HTTP-Response-1" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:[
+      {
+         &quot;id&quot;:3,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;123&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:18&quot;
+      },
+      {
+         &quot;id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;\u4f60\u597d&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:43&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- User get message history end-- -->
+
+<h2 id="POST-User-post-messages-to-admin"><a href="#POST-User-post-messages-to-admin" class="headerlink" title="[POST] User post messages to admin"></a>[POST] User post messages to admin</h2><p>發訊息</p>
+<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/messages</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;body&quot;: &quot;Hello, I&#39;m Tom.&quot;
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>body</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-2"><a href="#HTTP-Response-2" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:{
+      &quot;id&quot;:28,
+      &quot;order_id&quot;:4,
+      &quot;user_id&quot;:25,
+      &quot;body&quot;:&quot;Hello, I&#39;m Tom.&quot;,
+      &quot;created_at&quot;:&quot;2021-10-28 15:10:56&quot;,
+      &quot;updated_at&quot;:&quot;2021-10-28 15:10:56&quot;
+   }
+}
+</code></pre>
+<!-- -- User post messages to admin end-- -->
+          
+              <h1 id="Admin"><a href="#Admin" class="headerlink" title="Admin"></a>Admin</h1>
+          
+              <h1 id="Admin-messages"><a href="#Admin-messages" class="headerlink" title="Admin messages"></a>Admin messages</h1><h2 id="POST-Admin-post-messages-to-user"><a href="#POST-Admin-post-messages-to-user" class="headerlink" title="[POST] Admin post messages to user"></a>[POST] Admin post messages to user</h2><p>Admin發送訊息給用戶</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/users/{userId}/messages</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;body&quot;: &quot;Hello, I&#39;m iEcosystem admin.&quot;
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>userId</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>body</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:{
+      &quot;id&quot;:31,
+      &quot;order_id&quot;:4,
+      &quot;user_id&quot;:26,
+      &quot;body&quot;:&quot;Hello, I&#39;m iEcosystem admin.&quot;,
+      &quot;created_at&quot;:&quot;2021-10-28 15:10:08&quot;,
+      &quot;updated_at&quot;:&quot;2021-10-28 15:10:08&quot;
+   }
+}
+</code></pre>
+<!-- -- Admin post messages to user end-- -->
+
+<h2 id="GET-Admin-get-messages-from-user"><a href="#GET-Admin-get-messages-from-user" class="headerlink" title="[GET] Admin get messages from user"></a>[GET] Admin get messages from user</h2><p>Admin取得用戶訊息</p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/users/{userId}/messages?page=1&amp;perPage=10</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pages</td>
+<td>int</td>
+<td>分頁頁數</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>int</td>
+<td>分頁筆數</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-1"><a href="#HTTP-Response-1" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+    &quot;message&quot;:&quot;Successful.&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;body&quot;: &quot;Hello, I&#39;m Tom1.&quot;,
+            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
+            &quot;user_id&quot;: 2,
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;body&quot;: &quot;Hello, I&#39;m Tom2.&quot;,
+            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
+            &quot;user_id&quot;: 2,
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;body&quot;: &quot;Hello, I&#39;m Tom3.&quot;,
+            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
+            &quot;user_id&quot;: 2,
+        }
+    ]
+}
+</code></pre>
+<!-- -- Admin post messages to user end-- -->
+
+<h2 id="GET-Admin-assign-order"><a href="#GET-Admin-assign-order" class="headerlink" title="[GET] Admin assign order"></a>[GET] Admin assign order</h2><p>Admin指派</p>
+<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders/{orderId}/assign</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  &quot;user_id&quot;: 3
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user_id</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-Response-2"><a href="#HTTP-Response-2" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:{
+      &quot;id&quot;:4,
+      &quot;user_id&quot;:25,
+      &quot;number&quot;:&quot;#2021102800001&quot;,
+      &quot;status&quot;:0,
+      &quot;assign_id&quot;:26,
+      &quot;created_at&quot;:&quot;2021-10-28 14:10:58&quot;,
+      &quot;updated_at&quot;:&quot;2021-10-28 15:10:47&quot;
+   }
+}
+</code></pre>
+<!-- -- Admin assign order end-- -->
+
+<h2 id="GET-Admin-get-order-list"><a href="#GET-Admin-get-order-list" class="headerlink" title="[GET] Admin get order list"></a>[GET] Admin get order list</h2><p>Admin取得自己被指派的order</p>
+<h3 id="HTTP-Request-3"><a href="#HTTP-Request-3" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders/assign</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-3"><a href="#HTTP-Response-3" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:[
+      {
+         &quot;id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;number&quot;:&quot;#2021102800001&quot;,
+         &quot;status&quot;:0,
+         &quot;assign_id&quot;:26,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:58&quot;,
+         &quot;updated_at&quot;:&quot;2021-10-28 15:10:47&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- Admin get order list end-- -->
+
+<h2 id="GET-Admin-get-orders-messages"><a href="#GET-Admin-get-orders-messages" class="headerlink" title="[GET] Admin get orders messages"></a>[GET] Admin get orders messages</h2><p>Admin取得自己被指派order的訊息</p>
+<h3 id="HTTP-Request-4"><a href="#HTTP-Request-4" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders/{orderId}/messages?page=1&amp;perPage=10</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+  
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pages</td>
+<td>int</td>
+<td>分頁頁數</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>int</td>
+<td>分頁筆數</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-4"><a href="#HTTP-Response-4" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:[
+      {
+         &quot;id&quot;:3,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;123&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:18&quot;
+      },
+      {
+         &quot;id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;你好&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:43&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- Admin get order list end-- -->
+          
+              <h1 id="Admin-users"><a href="#Admin-users" class="headerlink" title="Admin users"></a>Admin users</h1><h2 id="GET-Admin-get-user-list"><a href="#GET-Admin-get-user-list" class="headerlink" title="[GET] Admin get user list"></a>[GET] Admin get user list</h2><p>Admin取得用戶清單</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/users?page=1&amp;perPage=10</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pages</td>
+<td>int</td>
+<td>分頁頁數</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>int</td>
+<td>分頁筆數</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;:&quot;Successful.&quot;,
+   &quot;data&quot;:[
+      {
+         &quot;id&quot;:1,
+         &quot;name&quot;:&quot;王大明&quot;,
+         &quot;email&quot;:&quot;yue.kun.ting@gmail.com&quot;
+      },
+      {
+         &quot;id&quot;:2,
+         &quot;name&quot;:&quot;王小明&quot;,
+         &quot;email&quot;:&quot;admin@gmail.com&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- Admin get user list end-- -->
+          
+              <h1 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h1><p>The Iecosystem API uses the following error codes:</p>
+<table>
+<thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>400</td>
+<td>Bad Request – Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized – Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden – The Iecosystem requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found – The specified Iecosystem could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed – You tried to access a Iecosystem with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable – You requested a format that isn’t json</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone – The Iecosystem requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I’m a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests – You’re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error – We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable – We’re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+          
+        
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+                <a href="#" data-language-name="bash">bash</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
