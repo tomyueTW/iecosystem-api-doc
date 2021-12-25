@@ -314,3 +314,69 @@ Parameter | Default | Description
 ```
 
 <!-- -- Facebook login end-- -->
+
+## Post user profile
+
+Post user profile
+
+### HTTP Request
+
+`GET https://iecosystem-api.tomyue.cc/api/user/profile`
+
+> Request body:
+
+```json
+{
+   "name":"1236",
+   "gender":"other",
+   "birthday":"2020-1-1",
+   "city":"台中",
+   "password":"123456",
+   "password_confirmation":"123456"
+}
+```
+
+ - Header Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+Authorization | string | Bearer {TOKEN}
+
+ - Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Body Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+password | string
+name | string
+gender | string   | ['male', 'female', 'other']
+birthday | date
+city | string
+
+### HTTP Response
+
+> Response:
+
+```json
+{
+   "user":{
+      "id":32,
+      "name":"1236",
+      "email":"admin5@gmail.com",
+      "email_verified_at":null,
+      "created_at":"2021-12-25 00:12:34",
+      "updated_at":"2021-12-25 10:12:35",
+      "account":null,
+      "gender":"other",
+      "birthday":"2020-01-01",
+      "city":"台北"
+   },
+   "success":true
+}
+```
+
+<!-- -- Post user profile end-- -->
