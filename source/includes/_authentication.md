@@ -315,13 +315,13 @@ Parameter | Default | Description
 
 <!-- -- Facebook login end-- -->
 
-## Post user profile
+## Edit user profile
 
-Post user profile
+Edit user profile
 
 ### HTTP Request
 
-`GET https://iecosystem-api.tomyue.cc/api/user/profile`
+`POST https://iecosystem-api.tomyue.cc/api/user/profile`
 
 > Request body:
 
@@ -379,4 +379,100 @@ city | string
 }
 ```
 
-<!-- -- Post user profile end-- -->
+<!-- -- Edit user profile end-- -->
+
+## Forgot password
+
+Forgot password
+
+### HTTP Request
+
+`POST https://iecosystem-api.tomyue.cc/api/forgot-password`
+
+> Request body:
+
+```json
+{
+   "email":"test@gmail.com"
+}
+```
+
+ - Header Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Body Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+email | email
+
+### HTTP Response
+
+> Response:
+
+```json
+{
+   "message": "密碼重設郵件已發送！",
+   "success":true
+}
+```
+
+<!-- -- Forgot password end-- -->
+
+## Reset password
+
+Reset password
+
+### HTTP Request
+
+`POST https://iecosystem-api.tomyue.cc/api/reset-password`
+
+> Request body:
+
+```json
+{
+   "token": "38a2dwovmvepkwepvmewwekve08aba7fb032d37056",
+   "email": "test@gmail.com",
+   "password": "123456",
+   "password_confirmation": "123456"
+}
+```
+
+ - Header Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Body Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+token | string
+email | email
+password | string
+password_confirmation | string
+
+### HTTP Response
+
+> Response:
+
+```json
+{
+   "message": "密碼已成功重設！",
+   "success":true
+}
+```
+
+<!-- -- Reset password end-- -->
