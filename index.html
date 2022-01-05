@@ -905,7 +905,7 @@
 <!-- -- User store messages [localStorage] end-- -->
 
 <h2 id="GET-User-get-message-history"><a href="#GET-User-get-message-history" class="headerlink" title="[GET] User get message history"></a>[GET] User get message history</h2><p>取得歷史紀錄</p>
-<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/messages?page=2&amp;perPage=2</code></p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/messages?page=2&amp;perPage=2&amp;sort=desc</code></p>
 <blockquote>
 <p>Request body:</p>
 </blockquote>
@@ -941,7 +941,22 @@
 <th>Description</th>
 </tr>
 </thead>
-</table>
+<tbody><tr>
+<td>page</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>string</td>
+<td>[‘asc’, ‘desc’]</td>
+</tr>
+</tbody></table>
 <ul>
 <li>Body Parameter</li>
 </ul>
@@ -966,16 +981,16 @@
    &quot;message&quot;:&quot;Successful.&quot;,
    &quot;data&quot;:[
       {
+         &quot;id&quot;:4,
+         &quot;user_id&quot;:25,
+         &quot;body&quot;:&quot;你好&quot;,
+         &quot;created_at&quot;:&quot;2021-10-28 14:10:43&quot;
+      },
+      {
          &quot;id&quot;:3,
          &quot;user_id&quot;:25,
          &quot;body&quot;:&quot;123&quot;,
          &quot;created_at&quot;:&quot;2021-10-28 14:10:18&quot;
-      },
-      {
-         &quot;id&quot;:4,
-         &quot;user_id&quot;:25,
-         &quot;body&quot;:&quot;\u4f60\u597d&quot;,
-         &quot;created_at&quot;:&quot;2021-10-28 14:10:43&quot;
       }
    ]
 }
@@ -1134,7 +1149,7 @@
 <!-- -- Admin post messages to user end-- -->
 
 <h2 id="GET-Admin-get-messages-from-user"><a href="#GET-Admin-get-messages-from-user" class="headerlink" title="[GET] Admin get messages from user"></a>[GET] Admin get messages from user</h2><p>Admin取得用戶訊息</p>
-<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/users/{userId}/messages?page=1&amp;perPage=10</code></p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/users/{userId}/messages?page=1&amp;perPage=10&amp;sort=desc</code></p>
 <blockquote>
 <p>Request body:</p>
 </blockquote>
@@ -1180,6 +1195,11 @@
 <td>int</td>
 <td>分頁筆數</td>
 </tr>
+<tr>
+<td>sort</td>
+<td>string</td>
+<td>[‘asc’, ‘desc’]</td>
+</tr>
 </tbody></table>
 <ul>
 <li>Body Parameter</li>
@@ -1199,22 +1219,22 @@
 <pre><code class="json highlight">{
     &quot;message&quot;:&quot;Successful.&quot;,
     &quot;data&quot;: [
+      {
+         &quot;id&quot;: 3,
+         &quot;body&quot;: &quot;Hello, I&#39;m Tom3.&quot;,
+         &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
+         &quot;user_id&quot;: 2,
+      },
+      {
+         &quot;id&quot;: 2,
+         &quot;body&quot;: &quot;Hello, I&#39;m Tom2.&quot;,
+         &quot;create_at&quot;: &quot;2021-10-28 09:00:00&quot;,
+         &quot;user_id&quot;: 2,
+      },
         {
             &quot;id&quot;: 1,
             &quot;body&quot;: &quot;Hello, I&#39;m Tom1.&quot;,
-            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
-            &quot;user_id&quot;: 2,
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;body&quot;: &quot;Hello, I&#39;m Tom2.&quot;,
-            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
-            &quot;user_id&quot;: 2,
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;body&quot;: &quot;Hello, I&#39;m Tom3.&quot;,
-            &quot;create_at&quot;: &quot;2021-10-28 10:00:00&quot;,
+            &quot;create_at&quot;: &quot;2021-10-28 08:00:00&quot;,
             &quot;user_id&quot;: 2,
         }
     ]
@@ -1222,8 +1242,8 @@
 </code></pre>
 <!-- -- Admin post messages to user end-- -->
 
-<h2 id="GET-Admin-assign-order"><a href="#GET-Admin-assign-order" class="headerlink" title="[GET] Admin assign order"></a>[GET] Admin assign order</h2><p>Admin指派</p>
-<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders/{orderId}/assign</code></p>
+<h2 id="POST-Admin-assign-order"><a href="#POST-Admin-assign-order" class="headerlink" title="[POST] Admin assign order"></a>[POST] Admin assign order</h2><p>Admin指派</p>
+<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/orders/{orderId}/assign</code></p>
 <blockquote>
 <p>Request body:</p>
 </blockquote>
@@ -1287,7 +1307,7 @@
       &quot;user_id&quot;:25,
       &quot;number&quot;:&quot;#2021102800001&quot;,
       &quot;status&quot;:0,
-      &quot;assign_id&quot;:26,
+      &quot;assign_id&quot;:3,
       &quot;created_at&quot;:&quot;2021-10-28 14:10:58&quot;,
       &quot;updated_at&quot;:&quot;2021-10-28 15:10:47&quot;
    }
