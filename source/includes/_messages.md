@@ -74,7 +74,7 @@ body     | array   |
 
 ### HTTP Request
 
-`GET https://iecosystem-api.tomyue.cc/api/messages?page=2&perPage=2`
+`GET https://iecosystem-api.tomyue.cc/api/messages?page=2&perPage=2&sort=desc`
 
 > Request body:
 
@@ -94,6 +94,9 @@ Authorization | string | Bearer {TOKEN}
 
 Parameter | Default | Description
 --------- | ------- | -----------
+page | int | 
+perPage | int |
+sort | string | ['asc', 'desc']
 
  - Body Parameter
 
@@ -111,16 +114,16 @@ body     | array   |
    "message":"Successful.",
    "data":[
       {
+         "id":4,
+         "user_id":25,
+         "body":"你好",
+         "created_at":"2021-10-28 14:10:43"
+      },
+      {
          "id":3,
          "user_id":25,
          "body":"123",
          "created_at":"2021-10-28 14:10:18"
-      },
-      {
-         "id":4,
-         "user_id":25,
-         "body":"\u4f60\u597d",
-         "created_at":"2021-10-28 14:10:43"
       }
    ]
 }

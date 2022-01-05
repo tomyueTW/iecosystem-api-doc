@@ -61,7 +61,7 @@ Admin取得用戶訊息
 
 ### HTTP Request
 
-`GET https://iecosystem-api.tomyue.cc/api/users/{userId}/messages?page=1&perPage=10`
+`GET https://iecosystem-api.tomyue.cc/api/users/{userId}/messages?page=1&perPage=10&sort=desc`
 
 > Request body:
 
@@ -83,6 +83,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 pages | int | 分頁頁數
 perPage | int | 分頁筆數
+sort | string | ['asc', 'desc']
 
  - Body Parameter
 
@@ -99,22 +100,22 @@ Parameter | Default | Description
 {
 	"message":"Successful.",
 	"data": [
+      {
+         "id": 3,
+         "body": "Hello, I'm Tom3.",
+         "create_at": "2021-10-28 10:00:00",
+         "user_id": 2,
+      },
+      {
+         "id": 2,
+         "body": "Hello, I'm Tom2.",
+         "create_at": "2021-10-28 09:00:00",
+         "user_id": 2,
+      },
 		{
 			"id": 1,
 			"body": "Hello, I'm Tom1.",
-			"create_at": "2021-10-28 10:00:00",
-			"user_id": 2,
-		},
-    	{
-			"id": 2,
-			"body": "Hello, I'm Tom2.",
-			"create_at": "2021-10-28 10:00:00",
-			"user_id": 2,
-		},
-    	{
-			"id": 3,
-			"body": "Hello, I'm Tom3.",
-			"create_at": "2021-10-28 10:00:00",
+			"create_at": "2021-10-28 08:00:00",
 			"user_id": 2,
 		}
 	]
@@ -123,13 +124,13 @@ Parameter | Default | Description
 
 <!-- -- Admin post messages to user end-- -->
 
-## [GET] Admin assign order
+## [POST] Admin assign order
 
 Admin指派
 
 ### HTTP Request
 
-`GET https://iecosystem-api.tomyue.cc/api/orders/{orderId}/assign`
+`POST https://iecosystem-api.tomyue.cc/api/orders/{orderId}/assign`
 
 > Request body:
 
@@ -170,7 +171,7 @@ user_id | int |
       "user_id":25,
       "number":"#2021102800001",
       "status":0,
-      "assign_id":26,
+      "assign_id":3,
       "created_at":"2021-10-28 14:10:58",
       "updated_at":"2021-10-28 15:10:47"
    }
