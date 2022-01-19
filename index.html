@@ -817,6 +817,151 @@
 }
 </code></pre>
 <!-- -- User store messages [localStorage] end-- -->
+
+<h2 id="GET-Order-types"><a href="#GET-Order-types" class="headerlink" title="[GET] Order types"></a>[GET] Order types</h2><p>問題種類清單</p>
+<h3 id="HTTP-Request-1"><a href="#HTTP-Request-1" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders/types</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-1"><a href="#HTTP-Response-1" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;: &quot;成功&quot;,
+   &quot;data&quot;: [
+      {
+         &quot;id&quot;: 1,
+         &quot;name&quot;: &quot;法律篇&quot;
+      },
+      {
+         &quot;id&quot;: 2,
+         &quot;name&quot;: &quot;醫療篇&quot;
+      },
+      {
+         &quot;id&quot;: 3,
+         &quot;name&quot;: &quot;經濟篇&quot;
+      }
+   ]
+}
+</code></pre>
+<!-- -- Order types end-- -->
+
+<h2 id="GET-User-orders"><a href="#GET-User-orders" class="headerlink" title="[GET] User orders"></a>[GET] User orders</h2><p>歷程總覽</p>
+<h3 id="HTTP-Request-2"><a href="#HTTP-Request-2" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/orders</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response-2"><a href="#HTTP-Response-2" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;: &quot;成功&quot;,
+   &quot;data&quot;: [
+      {
+         &quot;id&quot;: 2,
+         &quot;number&quot;: &quot;#2022010500009&quot;,
+         &quot;created_at&quot;: &quot;2022/01/08&quot;,
+         &quot;order_type_name&quot;: &quot;醫療篇&quot;,
+         &quot;assign&quot;: &quot;XX基金會&quot;,
+         &quot;status&quot;: &quot;進行中&quot;
+      },
+      {
+         &quot;id&quot;: 1,
+         &quot;number&quot;: &quot;#2022010500008&quot;,
+         &quot;created_at&quot;: &quot;2022/01/07&quot;,
+         &quot;order_type_name&quot;: &quot;法律篇&quot;,
+         &quot;assign&quot;: &quot;XX基金會&quot;,
+         &quot;status&quot;: &quot;已結束&quot;
+      },
+   ]
+}
+</code></pre>
+<!-- -- User orders end-- -->
           
               <h1 id="Messages"><a href="#Messages" class="headerlink" title="Messages"></a>Messages</h1><h2 id="POST-User-store-messages-localStorage"><a href="#POST-User-store-messages-localStorage" class="headerlink" title="[POST] User store messages [localStorage]"></a>[POST] User store messages [localStorage]</h2><p>發送<code>localStorage</code>裡的資訊</p>
 <h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/messages/storage</code></p>
@@ -1248,7 +1393,8 @@
 <p>Request body:</p>
 </blockquote>
 <pre><code class="json highlight">{
-  &quot;user_id&quot;: 3
+  &quot;user_id&quot;: 3,
+  &quot;order_type_id&quot;: 1
 }
 </code></pre>
 <ul>
@@ -1296,6 +1442,11 @@
 <td>int</td>
 <td></td>
 </tr>
+<tr>
+<td>order_type_id</td>
+<td>int</td>
+<td></td>
+</tr>
 </tbody></table>
 <h3 id="HTTP-Response-2"><a href="#HTTP-Response-2" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
 <p>Response:</p>
@@ -1308,6 +1459,7 @@
       &quot;number&quot;:&quot;#2021102800001&quot;,
       &quot;status&quot;:0,
       &quot;assign_id&quot;:3,
+      &quot;order_type_id&quot;: 1,
       &quot;created_at&quot;:&quot;2021-10-28 14:10:58&quot;,
       &quot;updated_at&quot;:&quot;2021-10-28 15:10:47&quot;
    }
