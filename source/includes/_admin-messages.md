@@ -136,7 +136,8 @@ Admin指派
 
 ```json
 {
-  "user_id": 3
+  "user_id": 3,
+  "order_type_id": 1
 }
 ```
 
@@ -157,6 +158,7 @@ Parameter | Default | Description
 Parameter | Default | Description
 --------- | ------- | -----------
 user_id | int | 
+order_type_id | int | 
 
 
 ### HTTP Response
@@ -172,6 +174,7 @@ user_id | int |
       "number":"#2021102800001",
       "status":0,
       "assign_id":3,
+      "order_type_id": 1,
       "created_at":"2021-10-28 14:10:58",
       "updated_at":"2021-10-28 15:10:47"
    }
