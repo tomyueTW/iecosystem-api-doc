@@ -55,3 +55,62 @@ Parameter | Default | Description
 ```
 
 <!-- -- User store messages [localStorage] end-- -->
+
+## [GET] Order types
+
+問題種類清單
+
+### HTTP Request
+
+`GET https://iecosystem-api.tomyue.cc/api/orders/types`
+
+> Request body:
+
+```json
+{
+
+}
+```
+
+ - Header Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+ - Body Parameter
+
+Parameter | Default | Description
+--------- | ------- | -----------
+
+
+
+### HTTP Response
+
+> Response:
+
+```json
+{
+   "message": "成功",
+   "data": [
+      {
+         "id": 1,
+         "name": "法律篇"
+      },
+      {
+         "id": 2,
+         "name": "醫療篇"
+      },
+      {
+         "id": 3,
+         "name": "經濟篇"
+      }
+   ]
+}
+```
+
+<!-- -- User store messages [localStorage] end-- -->
