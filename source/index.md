@@ -12,6 +12,7 @@ includes:
   - orders
   - messages
   - admin
+  - amdin-orders
   - admin-messages
   - admin-users
   - errors
