@@ -1216,7 +1216,94 @@
           
               <h1 id="Admin"><a href="#Admin" class="headerlink" title="Admin"></a>Admin</h1>
           
-              
+              <h1 id="Admin-orders"><a href="#Admin-orders" class="headerlink" title="Admin orders"></a>Admin orders</h1><h2 id="GET-orders"><a href="#GET-orders" class="headerlink" title="[GET] orders"></a>[GET] orders</h2><p>admin 取得所有orders</p>
+<h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>GET https://iecosystem-api.tomyue.cc/api/admin/orders?page=1&amp;perPage=10</code></p>
+<blockquote>
+<p>Request body:</p>
+</blockquote>
+<pre><code class="json highlight">{
+
+}
+</code></pre>
+<ul>
+<li>Header Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>string</td>
+<td>Bearer {TOKEN}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Query Parameters</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Body Parameter</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP Response"></a>HTTP Response</h3><blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="json highlight">{
+   &quot;message&quot;: &quot;成功&quot;,
+   &quot;data&quot;: [
+      {
+         &quot;id&quot;: 2,
+         &quot;user&quot;: &quot;Tom&quot;,
+         &quot;number&quot;: &quot;#2022010500009&quot;,
+         &quot;created_at&quot;: &quot;2022/01/08&quot;,
+         &quot;order_type_name&quot;: &quot;醫療篇&quot;,
+         &quot;assign&quot;: &quot;XX基金會&quot;,
+         &quot;status&quot;: &quot;進行中&quot;
+      },
+      {
+         &quot;id&quot;: 1,
+         &quot;user&quot;: &quot;Tom&quot;,
+         &quot;number&quot;: &quot;#2022010500008&quot;,
+         &quot;created_at&quot;: &quot;2022/01/07&quot;,
+         &quot;order_type_name&quot;: &quot;法律篇&quot;,
+         &quot;assign&quot;: &quot;XX基金會&quot;,
+         &quot;status&quot;: &quot;已結束&quot;
+      },
+   ]
+}
+</code></pre>
+<!-- -- User orders end-- -->
           
               <h1 id="Admin-messages"><a href="#Admin-messages" class="headerlink" title="Admin messages"></a>Admin messages</h1><h2 id="POST-Admin-post-messages-to-user"><a href="#POST-Admin-post-messages-to-user" class="headerlink" title="[POST] Admin post messages to user"></a>[POST] Admin post messages to user</h2><p>Admin發送訊息給用戶</p>
 <h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h3><p><code>POST https://iecosystem-api.tomyue.cc/api/users/{userId}/messages</code></p>
